@@ -1,0 +1,440 @@
+:root{
+  --bg:#06060a;
+  --card:#0f1114;
+  --accent:#f6b30a;
+  --gold: #ffd700;
+  --gold-dark: #d4af37;
+  --purple:#7b2cff;
+  --orange:#ff9a0a;
+  --green:#2f9b4a;
+  --muted:#9aa0a6;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+
+body{
+  margin:0;
+  background:linear-gradient(180deg,#06060a 0%, #0b0b0f 100%);
+  color:#fff;
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+}
+
+/* HEADER PROFISSIONAL */
+.topbar{
+  padding:15px 5%;
+  background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0));
+  display:flex;
+  align-items:center;
+  gap:20px;
+  max-width:1400px;
+  margin:0 auto;
+}
+
+.logo{
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  overflow:hidden;
+  flex-shrink:0;
+}
+
+.logo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.search{
+  flex:1;
+  max-width:500px;
+  display:flex;
+  align-items:center;
+  background:rgba(255,255,255,0.02);
+  padding:12px 20px;
+  border-radius:25px;
+  gap:12px;
+  margin:0 30px;
+}
+
+.search input{
+  flex:1;
+  background:transparent;
+  border:0;
+  outline:none;
+  color:#fff;
+  font-size:16px;
+}
+
+.cart{
+  width:50px;
+  height:50px;
+  background:var(--accent);
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+  font-size:20px;
+}
+
+/* HERO SECTION */
+.hero{
+  padding:30px 5%;
+  max-width:1400px;
+  margin:0 auto;
+}
+
+.hero-title{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+.title{
+  font-size:28px;
+  font-weight:700;
+}
+
+/* BANNER PROFISSIONAL */
+.banner{
+  margin:20px auto 0;
+  border-radius:16px;
+  overflow:hidden;
+  max-width:1200px;
+}
+
+.banner img{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:16px;
+}
+
+/* CATEGORY PILL */
+.pill{
+  display:inline-block;
+  padding:10px 25px;
+  border-radius:10px;
+  background:linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color:#000;
+  font-weight:bold;
+  font-size:16px;
+  text-align:center;
+  box-shadow:0 4px 15px rgba(255,215,0,0.3);
+  margin:0 5% 30px;
+  max-width:1400px;
+}
+
+/* === GRID TOTALMENTE RESPONSIVA === */
+
+/* MOBILE: 2 COLUNAS (como você quer) */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:15px;
+  padding:0 5% 120px;
+  max-width:1400px;
+  margin:0 auto;
+}
+
+/* Mobile pequeno: ajuste fino */
+@media(max-width: 480px){
+  .grid{
+    grid-template-columns:repeat(2, 1fr);
+    gap:12px;
+    padding:0 4% 100px;
+  }
+}
+
+/* Mobile médio: 2 colunas sólidas */
+@media(max-width: 767px){
+  .grid{
+    grid-template-columns:repeat(2, 1fr);
+    gap:15px;
+  }
+  
+  .topbar{
+    padding:12px 4%;
+    gap:15px;
+  }
+  
+  .search{
+    margin:0 15px;
+    padding:10px 15px;
+  }
+  
+  .logo, .cart{
+    width:45px;
+    height:45px;
+  }
+}
+
+/* TABLET: 3 COLUNAS */
+@media(min-width: 768px) and (max-width: 1023px){
+  .grid{
+    grid-template-columns:repeat(3, 1fr);
+    gap:20px;
+  }
+}
+
+/* PC: 4 COLUNAS */
+@media(min-width: 1024px) and (max-width: 1439px){
+  .grid{
+    grid-template-columns:repeat(4, 1fr);
+    gap:25px;
+  }
+}
+
+/* PC GRANDE: 5 COLUNAS */
+@media(min-width: 1440px){
+  .grid{
+    grid-template-columns:repeat(5, 1fr);
+    gap:30px;
+  }
+}
+
+/* CARD PROFISSIONAL */
+.card{
+  display:flex;
+  flex-direction:column;
+  background:linear-gradient(135deg, rgba(255,255,255,0.03), rgba(0,0,0,0.1));
+  border-radius:12px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.08);
+  transition:all 0.3s ease;
+  cursor:pointer;
+  height:100%;
+}
+
+.card:hover{
+  border-color:var(--gold);
+  box-shadow:0 10px 30px rgba(255,215,0,0.25);
+  transform:translateY(-5px);
+}
+
+.card-media{
+  height:160px;
+  overflow:hidden;
+  position:relative;
+}
+
+.card-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform 0.3s ease;
+}
+
+.card:hover .card-media img{
+  transform:scale(1.08);
+}
+
+.card-body{
+  padding:15px;
+  display:flex;
+  flex-direction:column;
+  flex-grow:1;
+}
+
+.product-title{
+  font-weight:800;
+  font-size:14px;
+  line-height:1.3;
+  margin-bottom:10px;
+  min-height:36px;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+.price-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:auto;
+  gap:8px;
+}
+
+.price-info{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+}
+
+.old-price{
+  color:var(--muted);
+  text-decoration:line-through;
+  font-size:12px;
+}
+
+.current-price{
+  font-weight:800;
+  font-size:16px;
+  color:var(--green);
+}
+
+.discount{
+  background:var(--gold);
+  color:#000;
+  padding:6px 8px;
+  border-radius:6px;
+  font-size:12px;
+  font-weight:bold;
+  white-space:nowrap;
+}
+
+/* ELEMENTOS PREMIUM */
+.delivery-badge{
+  background:var(--gold);
+  color:#000;
+  font-weight:bold;
+  padding:6px 10px;
+  font-size:11px;
+  border-radius:6px;
+  text-align:center;
+  margin:10px;
+  display:inline-block;
+}
+
+.buy-button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(to right, var(--gold-dark), var(--gold));
+  border: none;
+  border-radius: 8px;
+  color: #000;
+  font-weight: bold;
+  margin-top: auto;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+  text-decoration: none; /* Remove sublinhado do link */
+  transition: all 0.3s ease;
+}
+
+.buy-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.5);
+  text-decoration: none; /* Mantém sem sublinhado no hover */
+  color: #000; /* Mantém a cor no hover */
+
+}
+
+/* FOOTER PROFISSIONAL */
+.footer{
+  background:#0d0d0d;
+  text-align:center;
+  padding:25px;
+  margin-top:50px;
+  font-size:14px;
+  color:#aaa;
+  border-top:1px solid #222;
+  max-width:1400px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/* BOTÕES FLUTUANTES */
+.float-wrap{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index:1000;
+}
+
+.chat{
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  background:var(--accent);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 6px 20px rgba(0,0,0,0.4);
+  font-size:22px;
+  transition:transform 0.3s ease;
+}
+
+.chat:hover{
+  transform:scale(1.1);
+}
+
+/* BADGE PREMIUM */
+.premium-badge{
+  position:fixed;
+  top:20px;
+  left:20px;
+  background:linear-gradient(45deg, var(--gold), var(--orange));
+  color:#000;
+  padding:8px 16px;
+  border-radius:20px;
+  font-weight:bold;
+  font-size:12px;
+  z-index:1000;
+}
+
+/* LOADING INDICATOR */
+.carregando{
+  text-align:center;
+  padding:40px;
+  color:var(--muted);
+  font-size:16px;
+  grid-column:1/-1;
+}
+
+/* AJUSTES ESPECÍFICOS PARA MOBILE 2 COLUNAS */
+@media(max-width: 767px){
+  .card-media{
+    height:140px;
+  }
+  
+  .product-title{
+    font-size:13px;
+    min-height:32px;
+  }
+  
+  .current-price{
+    font-size:15px;
+  }
+  
+  .buy-button{
+    padding:10px;
+    font-size:13px;
+  }
+}
+
+/* HEADER MOBILE COMPACTO */
+@media(max-width: 480px){
+  .topbar{
+    padding:10px 4%;
+  }
+  
+  .search{
+    margin:0 10px;
+    padding:8px 12px;
+  }
+  
+  .search input{
+    font-size:14px;
+  }
+  
+  .logo, .cart{
+    width:40px;
+    height:40px;
+  }
+  
+  .title{
+    font-size:22px;
+  }
+  
+  .pill{
+    padding:8px 20px;
+    font-size:14px;
+    margin:0 4% 20px;
+  }
+}
